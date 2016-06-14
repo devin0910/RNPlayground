@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import WeatherProject from './WeatherProject';
+import WeatherProject from './src/components/WeatherProject';
 import Touchable from './Touchable';
 import SimpleList from './SimpleList';
 import BookList from './BookList';
@@ -19,7 +19,7 @@ import BookList from './BookList';
 class basic extends Component {
   render() {
     return (
-        <BookList />
+        <WeatherProject />
     );
   }
 }
