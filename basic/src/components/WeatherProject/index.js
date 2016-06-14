@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 
 const STORAGE_KEY = '@SmarterWeather:zip';
+const WEATHER_API_KEY = '58a3f97b6171d6306f3e362ef548cf8f';
+const API_STEM = 'http://api.openweathermap.org/data/2.5/weather?';
 
 import Forecast from './../Forecast';
 import LocationButton from './../LocationButton';
@@ -23,13 +25,30 @@ export default class WeatherProject extends Component {
     };
 
     this._handleTextChange = this._handleTextChange.bind(this);
+    this._getForeastForZip = this._getForeastForZip.bind(this);
+    this._getForecastForCoords = this._getForecastForCoords.bind(this);
   }
 
   _handleTextChange(event) {
     var zip = event.nativeEvent.text;
     this.setState({zip: zip});
-    fetch('http://api.openweathermap.org/data/2.5/weather?q='
-      + zip + '&units=imperial&APPID=58a3f97b6171d6306f3e362ef548cf8f')
+    this._getForeastForZip(zip);
+  }
+
+  _getForeastForZip(zip) {
+    this._getForeast(
+      `${API_STEM}q=${zip}&units=imperial&APPID=${WEATHER_API_KEY}`
+    );
+  }
+
+  _getForecastForCoords(lat, lon) {
+    this._getForeast(
+      `${API_STEM}lat=${lat}&lon=${lon}&units=imperial&APPID=${WEATHER_API_KEY}`
+    )
+  }
+
+  _getForeast(url, cb) {
+    fetch(url)
       .then((response) => response.json())
       .then((responseJSON) => {
         console.log(responseJSON);
@@ -43,7 +62,7 @@ export default class WeatherProject extends Component {
       })
       .catch((error) => {
         console.warn(error);
-      })
+      });
   }
 
   render() {

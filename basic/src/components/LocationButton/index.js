@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
-var styles = require('./styles.js');
+import styles from './styles.js';
 import Button from './../Button';
 
 export default class LocationButton extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this._onPress = this._onPress.bind(this);
+  }
 
   _onPress() {
     navigator.geolocation.getCurrentPosition(
@@ -24,4 +30,8 @@ export default class LocationButton extends Component {
       />
     );
   }
+}
+
+LocationButton.PropTypes = {
+  onGetCoords: PropTypes.func.isRequired
 }
