@@ -4,7 +4,8 @@ import {
   Text,
   View,
   Image,
-  TextInput
+  TextInput,
+  AsyncStorage,
 } from 'react-native';
 
 const STORAGE_KEY = '@SmarterWeather:zip';
@@ -25,20 +26,25 @@ export default class WeatherProject extends Component {
     };
 
     this._handleTextChange = this._handleTextChange.bind(this);
-    this._getForeastForZip = this._getForeastForZip.bind(this);
+    this._getForecastForZip = this._getForecastForZip.bind(this);
     this._getForecastForCoords = this._getForecastForCoords.bind(this);
   }
 
   _handleTextChange(event) {
     var zip = event.nativeEvent.text;
     this.setState({zip: zip});
-    this._getForeastForZip(zip);
+    this._getForecastForZip(zip);
   }
 
-  _getForeastForZip(zip) {
+  _getForecastForZip(zip) {
     this._getForeast(
       `${API_STEM}q=${zip}&units=imperial&APPID=${WEATHER_API_KEY}`
     );
+
+    AsyncStorage.setItem(STORAGE_KEY, zip)
+      .then(() => console.log('Saved selection to disk: ' + zip))
+      .catch((error) => console.log('AsyncStorage error: ' + error.message))
+      .done();
   }
 
   _getForecastForCoords(lat, lon) {
@@ -63,6 +69,17 @@ export default class WeatherProject extends Component {
       .catch((error) => {
         console.warn(error);
       });
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem(STORAGE_KEY)
+      .then((value) => {
+        if (value !== null) {
+          this._getForecastForZip(value);
+        }
+      })
+      .catch((error) => console.log('AsyncStorage error: ' + error.message))
+      .done();
   }
 
   render() {
