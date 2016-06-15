@@ -16,11 +16,29 @@ import Touchable from './Touchable';
 import SimpleList from './SimpleList';
 import BookList from './BookList';
 import Video from 'react-native-video';
+import _ from 'lodash';
 
 class basic extends Component {
+
+  componentDidMount() {
+    console.log('Random number: ' + _.random(0, 5));
+  }
+
   render() {
     return (
-      <WeatherProject />
+      <View style={styles.backgroundVideo}>
+        <Video source={{uri: "PianoStairs"}}
+          rate={1.0}
+          volume={1.0}
+          muted={false}
+          paused={false}
+          resizeMode="cover"
+          repeat={true}
+          style={styles.backgroundVideo} />
+        <Text style={styles.overlay}>
+            Read more: http://bit.ly/makepianostairs
+        </Text>
+      </View>
     );
   }
 }
