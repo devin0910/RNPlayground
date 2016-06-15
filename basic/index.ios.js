@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  NativeModules,
 } from 'react-native';
 import WeatherProject from './src/components/WeatherProject';
 import Touchable from './Touchable';
@@ -22,23 +23,25 @@ class basic extends Component {
 
   componentDidMount() {
     console.log('Random number: ' + _.random(0, 5));
+    NativeModules.HelloWorld.greeting('Olivia');
   }
 
   render() {
     return (
-      <View style={styles.backgroundVideo}>
-        <Video source={{uri: "PianoStairs"}}
-          rate={1.0}
-          volume={1.0}
-          muted={false}
-          paused={false}
-          resizeMode="cover"
-          repeat={true}
-          style={styles.backgroundVideo} />
-        <Text style={styles.overlay}>
-            Read more: http://bit.ly/makepianostairs
-        </Text>
-      </View>
+      <WeatherProject />
+      // <View style={styles.backgroundVideo}>
+      //   <Video source={{uri: "PianoStairs"}}
+      //     rate={1.0}
+      //     volume={1.0}
+      //     muted={false}
+      //     paused={false}
+      //     resizeMode="cover"
+      //     repeat={true}
+      //     style={styles.backgroundVideo} />
+      //   <Text style={styles.overlay}>
+      //       Read more: http://bit.ly/makepianostairs
+      //   </Text>
+      // </View>
     );
   }
 }

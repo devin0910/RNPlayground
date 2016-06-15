@@ -25,6 +25,7 @@
 		C5E8DDFD1D10D74700135C49 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8DDFC1D10D56C00135C49 /* libRCTCameraRoll.a */; };
 		C5E8DE041D11012B00135C49 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E8DE031D11012400135C49 /* libRCTVideo.a */; };
 		C5E8DE071D1102E600135C49 /* PianoStairs.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C5E8DE061D1102E600135C49 /* PianoStairs.mp4 */; };
+		C5E8DE091D1128A900135C49 /* HelloWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E8DE081D1128A900135C49 /* HelloWorld.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,8 @@
 		C5E8DDF71D10D56C00135C49 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		C5E8DDFE1D11012400135C49 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		C5E8DE061D1102E600135C49 /* PianoStairs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = PianoStairs.mp4; path = ../../../../../../Downloads/PianoStairs.mp4; sourceTree = "<group>"; };
+		C5E8DE081D1128A900135C49 /* HelloWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorld.m; sourceTree = "<group>"; };
+		C5E8DE0A1D112B5C00135C49 /* HelloWorld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorld.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +314,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C5E8DE0A1D112B5C00135C49 /* HelloWorld.h */,
+				C5E8DE081D1128A900135C49 /* HelloWorld.m */,
 				C5E8DE061D1102E600135C49 /* PianoStairs.mp4 */,
 				13B07FAE1A68108700A75B9A /* basic */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -606,6 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E8DE091D1128A900135C49 /* HelloWorld.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
